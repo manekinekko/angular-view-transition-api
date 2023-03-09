@@ -49,6 +49,10 @@ section {
   color: black;
 }
 
+mat-card {
+  cursor: pointer;
+}
+
 html::view-transition-old(root),
 html::view-transition-new(root) {
   animation-duration: 100ms;
