@@ -6,7 +6,6 @@ import {
   ViewChild,
 } from "@angular/core";
 import { Router, RouterModule } from "@angular/router";
-import { MatCardModule } from "@angular/material/card";
 
 @Component({
   selector: "app-root",
@@ -19,7 +18,6 @@ export class RootComponent {}
 @Component({
   selector: "app-a",
   standalone: true,
-  imports: [MatCardModule],
   template: `
     <svg #container viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +58,6 @@ export class AComponent {
 @Component({
   selector: "app-b",
   standalone: true,
-  imports: [MatCardModule],
   template: `
     <svg
       #container
@@ -123,7 +120,6 @@ export class BComponent {
 @Component({
   selector: "app-c",
   standalone: true,
-  imports: [MatCardModule],
   template: `
     <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -181,7 +177,6 @@ export class CComponent {
 @Component({
   selector: "app-d",
   standalone: true,
-  imports: [MatCardModule],
   template: `
     <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>

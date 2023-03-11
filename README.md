@@ -1,6 +1,10 @@
-# App
+# Angular View Transition Demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0-next.3.
+
+# Demo
+
+Visit the [demo](https://angular-view-transition-api.netlify.app/) to see the app in action.
 
 ## Development server
 
