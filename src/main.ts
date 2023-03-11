@@ -2,7 +2,7 @@ import { bootstrapApplication } from "@angular/platform-browser";
 import { importProvidersFrom } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { provideRouter, withHashLocation } from "@angular/router";
-import { AComponent, BComponent, RootComponent } from "./app/app.component";
+import { AComponent, BComponent, CComponent, DComponent, RootComponent } from "./app/app.component";
 
 bootstrapApplication(RootComponent, {
   providers: [
@@ -20,6 +20,14 @@ bootstrapApplication(RootComponent, {
       {
         path: "b",
         component: BComponent,
+      },
+      {
+        path: "c",
+        component: CComponent,
+      },
+      {
+        path: "d",
+        component: DComponent,
       },
     ], withHashLocation()),
   ],

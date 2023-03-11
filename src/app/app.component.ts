@@ -14,54 +14,44 @@ import { MatCardModule } from "@angular/material/card";
   imports: [RouterModule],
   template: `<router-outlet></router-outlet>`,
 })
-export class RootComponent { }
+export class RootComponent {}
 
 @Component({
   selector: "app-a",
   standalone: true,
   imports: [MatCardModule],
   template: `
-    <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <svg #container viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
-        <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>
-        <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>
-      </linearGradient>
+        <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+            <stop id="stop1" stop-color="rgba(215.039, 55, 248, 1)" offset="0%"></stop>
+            <stop id="stop2" stop-color="rgba(254.64, 255, 0, 1)" offset="100%"></stop>
+        </linearGradient>
     </defs>
-    <path
-      fill="url(#sw-gradient)"
-      d="M12.3,-21.8C16.2,-19,19.8,-16.3,25.7,-12.6C31.7,-9,39.9,-4.5,41.4,0.9C43,6.3,37.9,12.6,32.7,17.5C27.5,22.5,22.3,26.1,16.9,29.9C11.4,33.8,5.7,37.9,-1.1,39.8C-7.9,41.7,-15.8,41.4,-21.9,37.9C-28.1,34.4,-32.5,27.9,-34.2,21C-36,14.2,-35.1,7.1,-33,1.2C-30.9,-4.7,-27.5,-9.3,-24.9,-14.7C-22.3,-20,-20.4,-26.1,-16.4,-28.8C-12.4,-31.5,-6.2,-30.9,-1,-29.2C4.2,-27.4,8.4,-24.6,12.3,-21.8Z"
-      width="100%"
-      height="100%"
-      transform="translate(50 50)"
-      stroke-width="0"
-      style="transition: all 0.3s ease 0s"
-    ></path>
-  </svg>
-
+    <path fill="url(#sw-gradient)" d="M14.6,-22.7C20.9,-21.6,29.3,-21.7,31.8,-18.1C34.3,-14.5,30.8,-7.3,27.2,-2.1C23.6,3,19.7,6.1,16,7.7C12.4,9.3,9,9.5,6.3,13C3.7,16.6,1.9,23.6,-0.7,24.9C-3.3,26.1,-6.6,21.6,-9.5,18.2C-12.5,14.8,-15.2,12.5,-21.5,9.7C-27.8,6.9,-37.8,3.4,-40.2,-1.3C-42.5,-6.1,-37.1,-12.2,-30.4,-14.3C-23.6,-16.4,-15.5,-14.6,-10.2,-16.2C-4.9,-17.8,-2.4,-22.9,0.9,-24.4C4.2,-25.8,8.3,-23.7,14.6,-22.7Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: all 0.3s ease 0s;" stroke="url(#sw-gradient)"></path>
+</svg>
   `,
   styles: [
     `
       svg {
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        view-transition-name: card-small;
+        view-transition-name: a;
       }
     `,
   ],
 })
 export class AComponent {
-  @ViewChild("container", { static: true, read: ElementRef }) container!: ElementRef;
-  constructor(private router: Router, private zone: NgZone) { }
+  @ViewChild("container", { static: true, read: ElementRef })
+  container!: ElementRef;
+  constructor(private router: Router, private zone: NgZone) {}
 
   @HostListener("click")
   startTransition() {
-    this.container.nativeElement.style.viewTransitionName = "card-large";
+    this.container.nativeElement.style.viewTransitionName = "b";
     (document as any).startViewTransition(() => {
       this.zone.runTask(async () => {
         await this.router.navigateByUrl("/b");
-        this.container.nativeElement.style.viewTransitionName = "";
+        this.container.nativeElement.style.viewTransitionName = "a";
       });
     });
   }
@@ -72,11 +62,24 @@ export class AComponent {
   standalone: true,
   imports: [MatCardModule],
   template: `
-      <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <svg
+      #container
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+    >
       <defs>
         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
-          <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>
-          <stop id="stop2" stop-color="rgba(251, 31, 199.101, 1)" offset="100%"></stop>
+          <stop
+            id="stop1"
+            stop-color="rgba(248, 117, 55, 1)"
+            offset="0%"
+          ></stop>
+          <stop
+            id="stop2"
+            stop-color="rgba(251, 31, 199.101, 1)"
+            offset="100%"
+          ></stop>
         </linearGradient>
       </defs>
       <path
@@ -93,26 +96,141 @@ export class AComponent {
   styles: [
     `
       svg {
-        position: absolute;
-        height: 400px;
-        width: 400px;
-        right: 0;
-        view-transition-name: card-large;
+        left: 100px;
+        top: 100px;
+        view-transition-name: b;
       }
     `,
   ],
 })
 export class BComponent {
-  @ViewChild("container", { static: true, read: ElementRef }) container!: ElementRef;
-  constructor(private router: Router, private zone: NgZone) { }
+  @ViewChild("container", { static: true, read: ElementRef })
+  container!: ElementRef;
+  constructor(private router: Router, private zone: NgZone) {}
 
   @HostListener("click")
   startTransition() {
-    this.container.nativeElement.style.viewTransitionName = "card-small";
+    this.container.nativeElement.style.viewTransitionName = "c";
+    (document as any).startViewTransition(() => {
+      this.zone.runTask(() => {
+        this.router.navigateByUrl("/c");
+        this.container.nativeElement.style.viewTransitionName = "b";
+      });
+    });
+  }
+}
+
+@Component({
+  selector: "app-c",
+  standalone: true,
+  imports: [MatCardModule],
+  template: `
+    <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+          <stop
+            id="stop1"
+            stop-color="rgba(112.606, 0, 190.183, 1)"
+            offset="0%"
+          ></stop>
+          <stop
+            id="stop2"
+            stop-color="rgba(251, 31, 31, 1)"
+            offset="100%"
+          ></stop>
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#sw-gradient)"
+        d="M16.1,-24.5C18.9,-16.8,18,-9.9,19.2,-3.4C20.3,3.2,23.6,9.4,23.3,16.7C22.9,24,18.9,32.5,12.1,36.2C5.4,39.9,-4.2,38.9,-13.7,36.1C-23.2,33.3,-32.7,28.8,-33.6,22C-34.6,15.1,-27,5.8,-21.1,0.3C-15.3,-5.1,-11.3,-6.9,-8,-14.5C-4.8,-22.2,-2.4,-35.7,2.1,-38.2C6.6,-40.7,13.3,-32.2,16.1,-24.5Z"
+        width="100%"
+        height="100%"
+        transform="translate(50 50)"
+        stroke-width="0"
+        style="transition: all 0.3s ease 0s;"
+      ></path>
+    </svg>
+  `,
+  styles: [
+    `
+      svg {
+        left: 300px;
+        top: 400px;
+        view-transition-name: c;
+      }
+    `,
+  ],
+})
+export class CComponent {
+  @ViewChild("container", { static: true, read: ElementRef })
+  container!: ElementRef;
+  constructor(private router: Router, private zone: NgZone) {}
+
+  @HostListener("click")
+  startTransition() {
+    this.container.nativeElement.style.viewTransitionName = "d";
+    (document as any).startViewTransition(() => {
+      this.zone.runTask(() => {
+        this.router.navigateByUrl("/d");
+        this.container.nativeElement.style.viewTransitionName = "c";
+      });
+    });
+  }
+}
+
+@Component({
+  selector: "app-d",
+  standalone: true,
+  imports: [MatCardModule],
+  template: `
+    <svg #container viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+          <stop
+            id="stop1"
+            stop-color="rgba(255, 133.259, 133.259, 1)"
+            offset="0%"
+          ></stop>
+          <stop
+            id="stop2"
+            stop-color="rgba(251, 176.787, 31, 1)"
+            offset="100%"
+          ></stop>
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#sw-gradient)"
+        d="M17.6,10.4C11.6,20.4,-11.9,20.5,-17.8,10.4C-23.7,0.4,-11.8,-19.6,-0.1,-19.7C11.7,-19.7,23.5,0.3,17.6,10.4Z"
+        width="100%"
+        height="100%"
+        transform="translate(50 50)"
+        stroke-width="0"
+        style="transition: all 0.3s ease 0s;"
+      ></path>
+    </svg>
+  `,
+  styles: [
+    `
+      svg {
+        left: 800px;
+        top: 300px;
+        view-transition-name: d;
+      }
+    `,
+  ],
+})
+export class DComponent {
+  @ViewChild("container", { static: true, read: ElementRef })
+  container!: ElementRef;
+  constructor(private router: Router, private zone: NgZone) {}
+
+  @HostListener("click")
+  startTransition() {
+    this.container.nativeElement.style.viewTransitionName = "a";
     (document as any).startViewTransition(() => {
       this.zone.runTask(() => {
         this.router.navigateByUrl("/a");
-        this.container.nativeElement.style.viewTransitionName = "";
+        this.container.nativeElement.style.viewTransitionName = "d";
       });
     });
   }
